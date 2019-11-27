@@ -20,15 +20,17 @@ $router->get('/', function() use ($router) {
 $router->group(['prefix' => '/api', 'middleware' => 'auth'], function() use ($router) {
     
     $router->group(['prefix' => '/users'], function() use ($router) {
+        
+        $router->get('/current', function() {
+            return response()->json(Auth::user(), 200);
+        });
+
         $router->get('/', 'UsersController@index');
         $router->post('/', 'UsersController@store');
         $router->get('/{id}', 'UsersController@show');
         $router->put('/{id}', 'UsersController@update');
         $router->delete('/{id}', 'UsersController@destroy');
 
-        $router->get('/current', function() {
-            return response()->json(Auth::user(), 200);
-        });
     });
 
 });
