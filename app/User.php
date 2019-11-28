@@ -18,7 +18,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @var array
      */
-    protected $fillable = ['email', 'password'];
+    protected $fillable = ['email', 'password', 'name'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -26,6 +26,13 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $hidden = ['password'];
+
+    /**
+     * The attributes of pagination's size.
+     *
+     * @var integer
+     */
+    protected $perPage = 10;
 
     /**
      * Set the user's password.
