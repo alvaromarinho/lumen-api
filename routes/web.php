@@ -25,6 +25,8 @@ $router->group(['prefix' => '/api', 'middleware' => 'auth'], function() use ($ro
             return response()->json(Auth::user(), 200);
         });
 
+        $router->get('/actives', 'UsersController@indexActive');
+
         $router->get('/', 'UsersController@index');
         $router->post('/', 'UsersController@store');
         $router->get('/{id}', 'UsersController@show');

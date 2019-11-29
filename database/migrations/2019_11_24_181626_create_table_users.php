@@ -18,7 +18,7 @@ class CreateTableUsers extends Migration
             $table->string('email')->unique();
             $table->string('name');
             $table->string('password');
-
+            $table->boolean('active');
             $table->timestamps();
         });
     }

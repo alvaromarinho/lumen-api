@@ -18,7 +18,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @var array
      */
-    protected $fillable = ['email', 'password', 'name'];
+    protected $fillable = ['email', 'name', 'password', 'active'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -35,7 +35,18 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $perPage = 10;
 
     /**
-     * Set the user's password.
+     * Accessor
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function getActiveAttribute($value)
+    {
+        return $value ? true : false;
+    }
+
+    /**
+     * Mutators
      *
      * @param  string  $value
      * @return void
