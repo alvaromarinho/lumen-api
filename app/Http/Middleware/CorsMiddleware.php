@@ -17,7 +17,7 @@ class CorsMiddleware
     {
         //Intercepts OPTIONS requests
         if ($request->isMethod('OPTIONS')) {
-            $response = response('', 200);
+            $response = response('', 202);
         } else {
             // Pass the request to the next middleware
             $response = $next($request);
